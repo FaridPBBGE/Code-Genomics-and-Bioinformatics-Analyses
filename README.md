@@ -1,4 +1,6 @@
 # Postdoc_IHA-CS
+This github page is the notebook for my working on bioinformatics analysis for doing Post-doc in IHA-TAMU. There are several bioinformatics analysis, such as RNA and DNA mapping, SNP calling, quality control of raw reads  in this github. Bash, R, and Python languages have been used in these pipelines. As most of these pipelines are run in TAMU HPRC cluster, at the beginning, the job scripts are described, followed by scripts for respective pipeline.
+
 ## TAMU-HPRC Job Script Structure
 ~~~
 #!/bin/bash
@@ -213,3 +215,15 @@ STAR --runMode alignReads \
 --alignIntronMax 3000
 done
 ~~~
+### Counting transcript
+So far I used TPMCalculator and Salmon.
+#### Salmon
+At first, Reference genome needs to be indexed by Salmon. The below code is for indexing:
+~~~
+salmon index -t Zmays_493_APGv4.fa.gz -i maizev4_index
+~~~
+Next, 
+~~~
+salmon quant -i transcripts_index -l <LIBTYPE> -1 reads1.fq -2 reads2.fq --validateMappings -o transcripts_quant
+~~~
+
