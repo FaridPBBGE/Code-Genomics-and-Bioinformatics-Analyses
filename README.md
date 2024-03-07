@@ -1,4 +1,20 @@
-# Postdoc_IHA-CS
+# Bioinformatics Pipelines for Postdoctoral Research Institute IHA-CS
+This repository showcases bioinformatics analysis pipelines developed during my postdoctoral research at the Institute for Advancing Health Through Agriculture(IHA), Texas A&M AgriLife Research, College Station, TX.These pipelines cover the following tasks of bioinformatics analyses:
+* **RNA and DNA sequencing analysis:** Mapping reads, identifying differentially expressed genes, and exploring alternative splicing events.
+* **Single Nucleotide Polymorphism (SNP) calling:** Identifying and characterizing genetic variations.
+* **Quality control of raw sequencing data:** Assessing data integrity and filtering low-quality reads.
+
+These pipelines utilize scripting languages, including Bash, R, and Python. Scripts designed specifically for execution on the TAMU HPRC cluster are included along with detailed job descriptions, facilitating seamless deployment and scalability.
+
+**For further details and application of these pipelines within my research, please refer to my publications:**
+
+* [Link to Publication 1]
+* [Link to Publication 2]
+
+**Feel free to contact me for any inquiries.**
+
+
+
 This github page is the notebook for my working on bioinformatics analysis for doing Post-doc in IHA-TAMU. There are several bioinformatics analysis, such as RNA and DNA mapping, SNP calling, quality control of raw reads  in this github. Bash, R, and Python languages have been used in these pipelines. As most of these pipelines are run in TAMU HPRC cluster, at the beginning, the job scripts are described, followed by scripts for respective pipeline.
 
 ## TAMU-HPRC Job Script Structure
