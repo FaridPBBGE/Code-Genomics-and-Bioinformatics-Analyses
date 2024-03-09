@@ -1,10 +1,10 @@
 # Bioinformatics Pipelines for Postdoctoral Research Institute IHA-CS
 This repository showcases bioinformatics analysis pipelines developed during my postdoctoral research at the Institute for Advancing Health Through Agriculture(IHA), Texas A&M AgriLife Research, College Station, TX.These pipelines cover the following tasks of bioinformatics analyses:
 * **RNA and DNA sequencing analysis:** Mapping reads, identifying differentially expressed genes, and exploring alternative splicing events.
-* **Single Nucleotide Polymorphism (SNP) calling:** Identifying and characterizing genetic variations.
+* **SNP calling:** Identifying and characterizing genetic variations.
 * **Quality control of raw sequencing data:** Assessing data integrity and filtering low-quality reads.
 
-These pipelines utilize scripting languages, including Bash, R, and Python. Scripts designed specifically for execution on the TAMU HPRC cluster are included along with detailed job descriptions, facilitating seamless deployment and scalability.
+These pipelines utilize scripting languages, including Bash, R, and Python. Scripts designed specifically for execution on the TAMU HPRC cluster are included, along with tools commands.
 
 **For further details and application of these pipelines within my research, please refer to my publications:**
 
@@ -13,33 +13,25 @@ These pipelines utilize scripting languages, including Bash, R, and Python. Scri
 
 **Feel free to contact me for any inquiries.**
 
-
-
-This github page is the notebook for my working on bioinformatics analysis for doing Post-doc in IHA-TAMU. There are several bioinformatics analysis, such as RNA and DNA mapping, SNP calling, quality control of raw reads  in this github. Bash, R, and Python languages have been used in these pipelines. As most of these pipelines are run in TAMU HPRC cluster, at the beginning, the job scripts are described, followed by scripts for respective pipeline.
-
 ## TAMU-HPRC Job Script Structure
 ~~~
 #!/bin/bash
-## Necessary Job Specifications
 #SBATCH --export=NONE               # do not export current env to the job
 #SBATCH --job-name=fastqc_maize           # job name
 #SBATCH --time=04:00:00             # max job run time dd-hh:mm:ss
 #SBATCH --ntasks-per-node=1         # tasks (commands) per compute node
 #SBATCH --cpus-per-task=8           # CPUs (threads) per command
 #SBATCH --mem=5G                    # total memory per node
-#SBATCH --output=/scratch/user/farid-bge/RNAseq_pipeline_test/stdout/stdout.%j          # save stdout to file
-#SBATCH --error=/scratch/user/farid-bge/RNAseq_pipeline_test/stderr/stderr.%j           # save stderr to file
-
-## Loading modules
-module purge
-module load FastQC/0.11.9-Java-11
+#SBATCH --output=stdout.%j          # save stdout to file
+#SBATCH --error=stderr.%j           # save stderr to file
+## These are the parameters for TAMU HPRC slurm script.
 ~~~
 ### Job submission and monitoring job
 * Submit a job: **sbatch** [script_name]
 * Cancel/Kill a job: **scancel** [job_id]
 * Check status of a single job: **squeue** --job [job_id]
 ### Searching Software
-To search a software in the grace cluster, this [HPRC Available Software webpage](https://hprc.tamu.edu/kb/Software/) needs to be visited and type the software name. The following codes need to be used often to search, load, and unload the software in the cluster terminal:
+To search a software in the grace cluster, this [HPRC Available Software webpage](https://hprc.tamu.edu/kb/Software/) needs to be visited and type the software name. The following codes need to be used often to search, load, and unload the software in the HPRC terminal:
 * Finding most available software on Grace: **module avail**
 * Searching particular software (if I know the software name): **module spider**
 * Loading the software: **module load** *software name*
