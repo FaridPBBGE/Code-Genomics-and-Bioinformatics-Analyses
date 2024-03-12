@@ -1,4 +1,4 @@
-# Bioinformatics Pipelines for Postdoctoral Research Institute IHA-CS
+# Bioinformatics Pipelines for Postdoctoral Research @IHA-TAMU
 This repository showcases bioinformatics analysis pipelines developed during my postdoctoral research at the Institute for Advancing Health Through Agriculture(IHA), Texas A&M AgriLife Research, College Station, TX.These pipelines cover the following tasks of bioinformatics analyses:
 * **RNA and DNA sequencing analysis:** Mapping reads, identifying differentially expressed genes, and exploring alternative splicing events.
 * **SNP calling:** Identifying and characterizing genetic variations.
@@ -39,6 +39,7 @@ To search a software in the grace cluster, this [HPRC Available Software webpage
 * To remove loaded modules: **module purge**
 > It is always recommended to use module purge before using another modules in the same terminal session 
 ## RNA_Mapping Pipeline
+Before mapping sample reads to reference genome, at first, we will index reference genome of crop of interest by using STAR/2.7.9a tool (This is the update version available in TAMU HPRC when I am using the tool). 
 ### Reference genome indexing
 ~~~
 #!/bin/bash
