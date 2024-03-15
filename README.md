@@ -39,7 +39,7 @@ To search a software in the grace cluster, this [HPRC Available Software webpage
 * To remove loaded modules: **module purge**
 > It is always recommended to use module purge before using another modules in the same terminal session 
 ## RNA_Mapping Pipeline
-Before mapping sample reads to reference genome, at first, we will index reference genome of crop of interest by using STAR/2.7.9a tool (This is the update version available in TAMU HPRC when I am using the tool). 
+Before mapping sample reads to reference genome, at first, I will index reference genome of crop of interest by using STAR/2.7.9a tool (This is the update version available in TAMU HPRC when I am using the tool). 
 ### Reference genome indexing
 ~~~
 #!/bin/bash
@@ -65,6 +65,9 @@ STAR --runMode genomeGenerate \
 --genomeSAindexNbases 10 \
 --sjdbGTFfeatureExon CDS
 ~~~
+#### *Code explanation*
+To save the indexed genome in a desired directory, full path of that directory was given to --genomeDir command
+
 ### Quality check of fasta files
 ~~~
 #!/bin/bash
