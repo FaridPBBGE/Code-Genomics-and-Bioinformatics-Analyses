@@ -65,8 +65,10 @@ STAR --runMode genomeGenerate \
 --genomeSAindexNbases 10 \
 --sjdbGTFfeatureExon CDS
 ~~~
-#### *Code explanation*
-To save the indexed genome in a desired directory, full path of that directory was given to --genomeDir command
+
+#### *Notes*
+* To save the indexed genome in a desired directory, full path of that directory was given to --genomeDir command.
+* This script
 
 ### Quality check of fasta files
 ~~~
