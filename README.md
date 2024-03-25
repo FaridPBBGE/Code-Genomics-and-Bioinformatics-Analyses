@@ -68,7 +68,7 @@ STAR --runMode genomeGenerate \
 
 #### *Notes*
 * To save the indexed genome in a desired directory, full path of that directory was given to --genomeDir command.
-* This script
+  
 
 ### Quality check of fasta files
 ~~~
@@ -106,6 +106,9 @@ zcat ${f} | fastqc -t $threads -o $output_dir ${f}
 done
 ####comment: took 26 mins for 8 files in HPRC
 ~~~
+#### *Notes*
+* The full path to the directory where sample's fastq data are located need to be given in the "input_file" variable
+* Also, the output of this script can be saved to a specific directory by giving full path to the desired directory in the "output_dir" variable.
 ### Viewing MultiQC fasta files together
 ~~~
 ## load the module where I like to run the command
