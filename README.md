@@ -111,9 +111,9 @@ done
 * Also, the output of this script can be saved to a specific directory by giving full path to the desired directory in the "output_dir" variable.
 ### Viewing MultiQC fasta files together
 ~~~
-## load the module where I like to run the command
+## load the module in the directory where the fastqc results files are located
 module load MultiQC/1.14-foss-2022b
-##un the command in the directory all fastqc result files are located and add full path to save the result 
+## run the command in the directory all fastqc result files are located and add full path to save the result 
 multiqc /scratch/user/farid-bge/RNAseq_pipeline_test/maize_Raw_RNAdata/fastqc_output/fastqc_after_trimming
 ~~~
 ### Trimming the raw fasta files using Trimmomatic
