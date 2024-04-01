@@ -243,4 +243,5 @@ Next,
 ~~~
 salmon quant -i transcripts_index -l <LIBTYPE> -1 reads1.fq -2 reads2.fq --validateMappings -o transcripts_quant
 ~~~
-
+## DNA_Mapping Pipeline
+For DNA mapping, I used BWA tool. At first, I used BWA 0.7.17 version with samtools 1.17 for conversting sam files to sorted bam files in the same script file. Because of slow processing of BWA 0.7.17, I used then BWA last version, BWA-mem2 tool with samtools 1.17.
