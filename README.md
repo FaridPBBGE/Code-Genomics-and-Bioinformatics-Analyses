@@ -241,7 +241,26 @@ salmon index -t Zmays_493_APGv4.fa.gz -i maizev4_index
 ~~~
 Next, 
 ~~~
-salmon quant -i transcripts_index -l <LIBTYPE> -1 reads1.fq -2 reads2.fq --validateMappings -o transcripts_quant
+#### Loading modules and software
+module purge
+### Loading GCC as requirements to run Salmon in HPRC
+module load GCC/11.3.0
+### Loading Salmon :
+module load Salmon/1.10.1
+
+### setting parameters
+cpus=$SLURM_CPUS_PER_TASK
+##file1="/scratch/user/farid-bge/Transcripts_counting/maize/samples/trimmed_samples/SRR8197457_1_paired.fq.gz"
+##file2="/scratch/user/farid-bge/Transcripts_counting/maize/samples/trimmed_samples/SRR8197457_2_paired.fq.gz"
+
+##samp='SRR8197457' ## For single sample running in case need
+file='/scratch/user/farid-bge/RNA_mapping_pipeline/maize_Ref_gen_Raw_data/trimmed_sample'
+
+### Transcripts quantification by Salmon with loop to run all samples together
+for samp in $(ls $file/*1_paired.fq.gz | sed 's/1_paired.fq.gz//') 
+do
+salmon quant -i /scratch/user/farid-bge/Transcripts_counting/maize/Ref_genome/maizev4_index -l A -1 ${samp}1_paired.fq.gz -2 ${samp}2_paired.fq.gz -p $cpus --validateMappings -o /scratch/user/farid-bge/Transcripts_counting/maize/counting/${samp}quant
+done
 ~~~
 ## DNA_Mapping Pipeline
 For DNA mapping, I used BWA tool. At first, I used BWA 0.7.17 version with samtools 1.17 for conversting sam files to sorted bam files in the same script file. Because of slow processing of BWA 0.7.17, I used then BWA last version, BWA-mem2 tool with samtools 1.17.
