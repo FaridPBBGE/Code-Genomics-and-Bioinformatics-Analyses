@@ -265,6 +265,15 @@ done
 ## DNA_Mapping Pipeline
 For DNA mapping, I used BWA tool. At first, I used BWA 0.7.17 version with samtools 1.17 for conversting sam files to sorted bam files in the same script file. Because of slow processing of BWA 0.7.17, I used then BWA last version, BWA-mem2 tool with samtools 1.17.
 ~~~
+#!/bin/bash
+#SBATCH --export=NONE               # do not export current env to the job
+#SBATCH --job-name=bwa_mapping           # job name
+#SBATCH --time=12:00:00             # max job run time dd-hh:mm:ss
+#SBATCH --ntasks-per-node=1         # tasks (commands) per compute node
+#SBATCH --cpus-per-task=20          # CPUs (threads) per command
+#SBATCH --mem=300G                   # total memory per node
+#SBATCH --output=/scratch/user/farid-bge/stdout/stdout.%j          # save stdout to file
+#SBATCH --error=/scratch/user/farid-bge/stderr/stderr.%j           # save stderr to file
 ## For BWA-mem2
 module purge
 module load GCC/11.3.0
