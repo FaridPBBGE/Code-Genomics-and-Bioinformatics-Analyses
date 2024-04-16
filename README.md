@@ -232,6 +232,8 @@ STAR --runMode alignReads \
 --alignIntronMax 3000
 done
 ~~~
+### Mapping summary files result
+
 ### Counting transcript
 So far I used TPMCalculator and Salmon.
 #### Salmon
