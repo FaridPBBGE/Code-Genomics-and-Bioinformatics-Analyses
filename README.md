@@ -232,7 +232,8 @@ STAR --runMode alignReads \
 --alignIntronMax 3000
 done
 ~~~
-### Mapping summary files result
+### Getting count summary result of all mapping files
+* At first, a script needs to be made. For that, create a txt file using **nano** text editor or **>** or **touch** <file name>  
 
 ### Counting transcript
 So far I used TPMCalculator and Salmon.
