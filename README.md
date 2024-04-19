@@ -233,8 +233,21 @@ STAR --runMode alignReads \
 done
 ~~~
 ### Getting count summary result of all mapping files
-* At first, a script needs to be made. For that, create a txt file using **nano** text editor or **>** or **touch** <file name>  
-
+* At first, a bash script file needs to be made. For that, a txt file using **nano** text editor or **">"** or **touch** <file name>.sh will be created.
+* The following bash code will be copied and pasted into the newly created file.
+~~~
+for f in $(grep -l 'Uniquely mapped reads number' *Log.final.out); do 
+export percent=$(sed -n '/Uniquely mapped reads %/p' $f |cut -f2)
+export num=$(sed -n '/Uniquely mapped reads number/p' $f| cut -f2)
+export file=$(paste <(echo "$f") <(echo "$num") <(echo "$percent"))
+echo "$file" >> compiled_STAR_stats.txt
+done
+~~~
+* The file will be saved and closed
+* If the script does not run for execute permission issue, the following command needs to be run to change the file permission.
+~~~
+chmod u+x <file name>.sh
+~~~
 ### Counting transcript
 So far I used TPMCalculator and Salmon.
 #### Salmon
