@@ -248,6 +248,7 @@ done
 ~~~
 chmod u+x <file name>.sh
 ~~~
+* The script written here needs to be placed in the same directory where all the STAR output files are located; otherwise this script will not find the files.
 ### Counting transcript
 So far I used TPMCalculator and Salmon.
 #### Salmon
