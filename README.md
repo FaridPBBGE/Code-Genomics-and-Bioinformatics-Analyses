@@ -279,6 +279,8 @@ do
 salmon quant -i /scratch/user/farid-bge/Transcripts_counting/maize/Ref_genome/maizev4_index -l A -1 ${samp}1_paired.fq.gz -2 ${samp}2_paired.fq.gz -p $cpus --validateMappings -o /scratch/user/farid-bge/Transcripts_counting/maize/counting/${samp}quant
 done
 ~~~
+#### TPMCalculator
+
 ## DNA_Mapping Pipeline
 For DNA mapping, I used BWA tool. At first, I used BWA 0.7.17 version with samtools 1.17 for conversting sam files to sorted bam files in the same script file. Because of slow processing of BWA 0.7.17, I used then BWA last version, BWA-mem2 tool with samtools 1.17.
 ~~~
