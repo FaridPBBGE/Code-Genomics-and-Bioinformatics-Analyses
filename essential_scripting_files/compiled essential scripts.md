@@ -1,4 +1,4 @@
-## Codes for extraction information from fasta/bam/gtf/gff3 file
+## Codes for routine tasks related to sequncing data
 - **To extract genes information for certain regions of genome based on "start" and "end" column/subsetting genes list from a file for certain genomic region.**
 ~~~
 ## Below codes are for running as a script
