@@ -1,5 +1,6 @@
 # Differential gene expression analysis using DESeq2 tool
 **updating**
+~~~
 ## installing tximport
 BiocManager::install("tximport")
 ## loading packages
@@ -109,3 +110,5 @@ ggplot(c_plot,aes(x=condition,y=count))+
 
 ## To know more informaiton about result object got before
 mcols(result)$description
+~~~
+
