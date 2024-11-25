@@ -11,6 +11,11 @@ Each section contains sub-sections based on specific projects and tasks.
 ## Languages Used
 - **Bash**
 - **R**
+## Genomics
+Genomics analysis cover the following research areas:
+- **Genome-wide Association study (GWAS)**
+- **Population structure analysis using STRUCTURE v2.3.4 command line version**
+- **VCF files**
 
 ## Bioinformatics Pipelines
 
@@ -23,6 +28,7 @@ These bioinformatics analysis pipelines were developed during my postdoctoral re
 
 ### SNP Calling
 - **Identifying and characterizing genetic variations**
+
 
 ### Quality Control of Raw Sequencing Data
 - **Assessing data integrity**
