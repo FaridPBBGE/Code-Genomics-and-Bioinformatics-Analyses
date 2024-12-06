@@ -12,7 +12,7 @@ Each section contains sub-sections based on specific projects and tasks.
 - **Bash**
 - **R**
 ## Genomics
-Genomics analysis cover the following research areas:
+Genomics analysis cover the following topics:
 - **Genome-wide Association study (GWAS)**
 - **Population structure analysis using STRUCTURE v2.3.4 command line version**
 - **VCF files**
