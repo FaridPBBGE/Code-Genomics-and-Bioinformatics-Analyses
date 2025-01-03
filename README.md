@@ -1,39 +1,60 @@
-# Code Compilation for Genomics and Bioinformatics Projects
+# Genomics and Bioinformatics Code Repository
 
-Welcome to my repository! This collection showcases the codes and scripts I have used and am currently using for my genomics and bioinformatics projects during my Ph.D. and postdoctoral research. The repository is organized into three main sections:
+Welcome to this repository, showcasing code and scripts developed and utilized during my Ph.D. and postdoctoral research in genomics and bioinformatics. This collection is organized for clarity and ease of navigation, providing practical examples of computational approaches in these fields.
 
-1. **Genomics**
-2. **Bioinformatics**
-3. **Data Processing**
+## Repository Structure
 
-Each section contains sub-sections based on specific projects and tasks.
+The repository is divided into three primary sections:
 
-## Languages Used
-- **Bash**
-- **R**
+1.  **Genomics:** Analyses related to genome-scale data.
+2.  **Bioinformatics:** Computational pipelines for biological data analysis.
+3.  **Data Processing:** Scripts for data preparation, cleaning, and formatting.
+
+Each section contains subdirectories organized by specific projects and analytical tasks, facilitating efficient browsing.
+
+## Technologies and Languages
+
+The code in this repository primarily utilizes the following technologies and programming languages:
+
+*   **Bash:** For shell scripting and command-line automation.
+*   **R:** For statistical computing, data analysis, and visualization.
+
 ## Genomics
-Genomics analysis cover the following topics:
-- **Genome-wide Association study (GWAS)**
-- **Population structure analysis using STRUCTURE v2.3.4 command line version**
-- **Linkage Disequilibrium (LD) decay**
-- **Population genetics and genetic diversity analysis**
-- **to be continued**
 
-## Bioinformatics Pipelines
+This section encompasses a range of genomics analyses, including:
 
-These bioinformatics analysis pipelines were developed during my postdoctoral research at the Institute for Advancing Health Through Agriculture (IHA), Texas A&M AgriLife Research, College Station, TX. The pipelines cover the following tasks:
+*   **Genome-Wide Association Studies (GWAS):** Scripts and workflows for identifying genetic associations with traits.
+*   **Population Structure Analysis:** Implementation of STRUCTURE v2.3.4 (command-line version) for population stratification.
+*   **Linkage Disequilibrium (LD) Decay Analysis:** Methods for assessing LD patterns in populations.
+*   **Population Genetics and Genetic Diversity Analysis:** Tools for evaluating genetic variation and population dynamics.
+*   *(Future additions planned)*
+
+## Bioinformatics
+
+This section primarily features pipelines developed during my postdoctoral research at the Institute for Advancing Health Through Agriculture (IHA), Texas A&M AgriLife Research, College Station, TX. Key areas include:
 
 ### RNA and DNA Sequencing Analysis
-- **Mapping reads**
-- **Identifying differentially expressed genes**
-- **Exploring alternative splicing events**
 
-### SNP Calling
-- **Identifying and characterizing genetic variations using GATK**
+*   **Read Mapping:** Scripts for aligning sequencing reads to reference genomes.
+*   **Differential Gene Expression Analysis:** Pipelines for identifying differentially expressed genes.
+*   **Alternative Splicing Analysis:** Tools for investigating alternative splicing events.
 
+### Variant Calling
 
-### Quality Control of Raw Sequencing Data
-- **Assessing data integrity**
-- **Filtering low-quality reads**
+*   **Variant Identification and Characterization:** Utilizing GATK for single nucleotide polymorphism (SNP) and other variant calling.
 
-Scripts designed specifically for execution on the TAMU HPRC cluster are included, along with tool commands.
+### Raw Sequencing Data Quality Control
+
+*   **Data Integrity Assessment:** Methods for evaluating the quality and integrity of sequencing data.
+*   **Low-Quality Read Filtering:** Procedures for removing low-quality reads to improve downstream analysis.
+
+Scripts optimized for execution on the Texas A&M High Performance Research Computing (HPRC) cluster are included, accompanied by illustrative command-line examples.
+
+## Data Processing
+
+This section contains scripts for data manipulation tasks, such as:
+
+*   Data cleaning and formatting for downstream analysis.
+*   Data conversion between different formats.
+*   Custom data processing workflows.
+
