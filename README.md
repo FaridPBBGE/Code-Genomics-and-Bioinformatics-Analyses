@@ -15,7 +15,9 @@ Each section contains sub-sections based on specific projects and tasks.
 Genomics analysis cover the following topics:
 - **Genome-wide Association study (GWAS)**
 - **Population structure analysis using STRUCTURE v2.3.4 command line version**
-- **VCF files**
+- **Linkage Disequilibrium (LD) decay**
+- **Population genetics and genetic diversity analysis**
+- **to be continued**
 
 ## Bioinformatics Pipelines
 
@@ -27,7 +29,7 @@ These bioinformatics analysis pipelines were developed during my postdoctoral re
 - **Exploring alternative splicing events**
 
 ### SNP Calling
-- **Identifying and characterizing genetic variations**
+- **Identifying and characterizing genetic variations using GATK**
 
 
 ### Quality Control of Raw Sequencing Data
