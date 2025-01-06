@@ -27,7 +27,7 @@ This section encompasses a range of genomics analyses, including:
 *   **Population Structure Analysis:** Implementation of STRUCTURE v2.3.4 (command-line version) for population stratification.
 *   **Linkage Disequilibrium (LD) Decay Analysis:** Methods for assessing LD patterns in populations.
 *   **Population Genetics and Genetic Diversity Analysis:** Tools for evaluating genetic variation and population dynamics.
-*   *(Future additions planned)*
+*   *(To be continued)*
 
 ## Bioinformatics
 
