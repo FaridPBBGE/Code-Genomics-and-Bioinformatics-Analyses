@@ -1,5 +1,5 @@
-## Codes for routine tasks related to sequncing data
-- **To extract genes information for certain regions of genome based on "start" and "end" column/subsetting genes list from a file for certain genomic region.**
+Codes for routine tasks related to sequncing data
+- *To extract genes information for certain regions of genome based on "start" and "end" column/subsetting genes list from a file for certain genomic region.**
 ~~~
 ## Below codes are for running as a script
 #!/bin/bash
@@ -15,7 +15,7 @@ awk -F " " -v start="$var1" -v end="$var2" '{ if(($1=="SOVchr2") && (($3>=start 
 condition c
 awk -F " " -v start="$var1" -v end="$var2" '{ if(($1=="SOVchr2") && (($3<=start) && ($4>=start && $4<=end))) { print } }' 
 ~~~
-- **To get the read's mate unmapped from bam file** 
+- *To get the read's mate unmapped from bam file** 
 ~~~
 samtools view <file>.bam | cut –f7 | grep –c ‘*’
 ~~~
