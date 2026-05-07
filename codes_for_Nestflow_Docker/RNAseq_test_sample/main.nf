@@ -3,6 +3,8 @@ nextflow.enable.dsl= 2
 
 params.reads = "$baseDir/data/ggal/*_{1,2}.fq"
 params.transcriptome = "$baseDir/data/ggal/transcriptome.fa"
+params.genomeDir ="$baseDir/data/genomeDir"
+params.gtf ="$baseDir/data/file.gff3"
 params.outdir = "results"
 
 // Workflow: Connecting the Steps to be used
@@ -11,14 +13,19 @@ workflow {
 // Creating a channel that pair the files and extracts the smaple ID/name
 read_pairs_ch = Channel.fromFilePairs(params.reads, checkIfExists: true)
 
-// Indexing the transcriptome 
-INDEX(params.transcriptome)
+// Quality Control and Trimming
+TRIMMOMATIC(read_pairs_ch)
+FASTQC(TRIMMOMATIC.out.trimmed_reads)
 
-// Quanlity control
-FASTQC(read_pairs_ch)
+// Indexing the transcriptome for Salmon
+SALMON_INDEX(params.transcriptome)
 
-// Quantification by Salmon
-QUANT(INDEX.out, read_pairs_ch)
+// Dual-Analysis path
+// A. Transcriptome Quantification by Salmon
+SALMON_QUANT(SALMON_INDEX.out, TRIMMOMATIC.out.trimmed_reads)
+// B. Genomic Alignment by STAR
+ALIGN_STAR(TRIMMOMATIC.out.trimmed_reads, params.genomeDir, params.gtf)
+............to be continued
 
 //Collect all outputs from fastqc and salmon and send them to MultiQC
 MULTIQC(
