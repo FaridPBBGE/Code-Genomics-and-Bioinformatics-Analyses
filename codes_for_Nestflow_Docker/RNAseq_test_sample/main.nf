@@ -25,29 +25,30 @@ SALMON_INDEX(params.transcriptome)
 SALMON_QUANT(SALMON_INDEX.out, TRIMMOMATIC.out.trimmed_reads)
 // B. Genomic Alignment by STAR
 ALIGN_STAR(TRIMMOMATIC.out.trimmed_reads, params.genomeDir, params.gtf)
-............to be continued
 
-//Collect all outputs from fastqc and salmon and send them to MultiQC
+// Collecting all outputs from fastqc and salmon and send them to MultiQC
 MULTIQC(
 FASTQC.out.collect(),
-QUANT.out.collect()
+SALMON_QUANT.out.collect(),
+ALIGN_STAR.out.log.collect()
 )
 }
 
-// Process: Indexing
-process INDEX {
-tag "Indexing $transcriptome.simpleName"
-
-input:
-path transcriptome
-
-output:
-path 'salmon_index'
-
-script:
-"""
-salmon index --threads $task.cpus -t $transcriptome -i salmon_index
-"""
+// -----Process-----: Trimming
+process TRIMMOMATIC {
+    tag "Trimming $sample_id"
+    publishDir "${params.outdir}/trimmed", mode: 'copy'
+    input:
+    tuple val(sample_id), path(reads)
+    output:
+    tuple val(sample_id), path("${sample_id}_*{1,2}_paired.fq.gz"), emit: trimmed_reads
+    script:
+    """
+    trimmomatic PE -phred33 ${reads[0]} ${reads[1]} \\
+    ${sample_id}_1_paired.fq.gz ${sample_id}_1_unpaired.fq.gz \\
+    ${sample_id}_2_paired.fq.gz ${sample_id}_2_unpaired.fq.gz \\
+    LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+    """
 }
 
 // Process: Quality check
@@ -67,8 +68,26 @@ fastqc ${reads[0]} ${reads[1]}
 """
 }
 
+// Process: Salmon Indexing
+
+process SALMON_INDEX {
+tag "Indexing $transcriptome.simpleName"
+
+input:
+path transcriptome
+
+output:
+path 'salmon_index'
+
+script:
+"""
+salmon index --threads $task.cpus -t $transcriptome -i salmon_index
+"""
+}
+
 //Process: Quantification
-process QUANT {
+
+process SALMON_QUANT {
 tag "Quantifying $sample_id"
 publishDir "${params.outdir}/quant", mode: 'copy'
 
@@ -85,9 +104,31 @@ salmon quant -i $index_dir -l A -1 ${reads[0]} -2 ${reads[1]} -o ${sample_id}_qu
 """
 }
 
+// Process: Mapping by STAR
+
+process ALIGN_STAR {
+    tag "STAR Align: $sample_id"
+    publishDir "${params.outdir}/star_alignment", mode: 'copy'
+    input:
+    tuple val(sample_id), path(reads)
+    path genomeDir
+    path gtf
+    output:
+    path "${sample_id}*"
+    path "${sample_id}Log.final.out", emit: log
+    script:
+    """
+    STAR --runMode alignReads --runThreadN 8 --genomeDir $genomeDir \\
+         --readFilesIn ${reads[0]} ${reads[1]} --readFilesCommand zcat \\
+         --outSAMtype BAM Unsorted --quantMode GeneCounts --sjdbGTFfile $gtf \\
+         --outFileNamePrefix ${sample_id}
+    """
+}
+
 //Process: MultiQC visualization 
+
 process MULTIQC {
-tag "Summarizing all results"
+tag "MultiQC:Summarizing all results"
 publishDir "${params.outdir}/multiqc", mode: 'copy'
 
 input:
